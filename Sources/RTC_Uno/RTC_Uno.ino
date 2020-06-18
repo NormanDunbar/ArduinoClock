@@ -77,7 +77,7 @@ void setup()
 {
     Serial.begin(9600); // initialize serial
     
-    lcd.begin();        // initialize lcd
+    lcd.init();        // initialize lcd
     lcd.backlight();    // switch-on lcd backlight
   
     rtc.begin();        // initialize rtc

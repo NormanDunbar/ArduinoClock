@@ -2,7 +2,7 @@
 #include <USI_TWI_Master.h>
 
 #include <LiquidCrystal_I2C.h>      // for LCD
-#include <TinyRTClib.h>             // For RTC.
+#include <RTClib.h>                 // For RTC.
 
 LiquidCrystal_I2C lcd(0x3f, 16, 2); // create LCD with I2C address 0x3F, 16 characters per line, 2 lines
 RTC_DS3231 rtc;                     // create rtc for the DS3231 RTC module, address is fixed at 0x68
@@ -78,7 +78,7 @@ void updateLCD()
 
 void setup()
 {
-    lcd.begin();        // initialize lcd
+    lcd.init();        // initialize lcd
     lcd.backlight();    // switch-on lcd backlight
   
     rtc.begin();        // initialize rtc
