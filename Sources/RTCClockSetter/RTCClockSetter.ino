@@ -72,9 +72,10 @@ void updateRTC()
                               "hours [0~23]", "minutes [0~59]", "seconds [0~59]"};
 
     
-    // Define limits for the 6 user inputs.
+    // Define limits for the 6 user inputs. Years between 2000 and 2099
+    // are all that is permitted by the RTClib library.
     const minMax_t minMax[] = {
-        {2000, 9999},   // Year
+        {2000, 2099},   // Year
         {1, 12},        // Month
         {1, 31},        // Day
         {0, 23},        // Hour
@@ -209,5 +210,3 @@ void loop()
 
     delay(1000);
 }
-
-
