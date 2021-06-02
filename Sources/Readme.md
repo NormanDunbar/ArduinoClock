@@ -7,7 +7,5 @@ There are a few different sketches in this directory. These are:
 
   * **RTC_Uno** - My version of the original code for an Arduino Uno, but without the ability to set the clock. That is done with the **RTCClockSetter** sketch. Serial is not used in this sketch.
 
-  * **RTC_ATtiny85** - My version of the original code for an ATtiny85, again without the ability to set the clock. That is done with the **RTCClockSetter** sketch. ``Serial`` cannot be used in this sketch as the ATtiny85 has no hardware Serial ability like the Uno.
-
   * **RTC_xxxx** - My version of **RTC_Uno** for different AVR microcontrollers. _Just in case_ I start creating other stuff and haven't updated this file yet.
 
