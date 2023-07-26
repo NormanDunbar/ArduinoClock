@@ -1,8 +1,26 @@
-#include <Wire.h>                   // for I2C communication
-#include <LiquidCrystal_I2C.h>      // for LCD
+/*
+ * This sketch uses the I2C Liquid Crystal Library by Arnakazim.
+ *
+ * To install: 
+ *   Sketch->Include Library->Manage Libraries.
+ *   Filter for "TWILiquidCrystal" without quotes.
+ *   Select the one that mentions Arnakazim.
+ *
+ * To install Adafruit's RTCLib:
+ *   Sketch->Include Library->Manage Libraries.
+ *   Filter for "RTClib" without quotes.
+ *   Select the one that mentions Adafruit.
+ */
+ 
+#include <TwiLiquidCrystal.h>      // for LCD
 #include <RTClib.h>                 // for RTC
 
-LiquidCrystal_I2C lcd(0x3f, 16, 2); // create LCD with I2C address 0x3F, 16 characters per line, 2 lines
+// Definitions for the LCD.
+const uint8_t LCD_ADDRESS = 0x27;
+const uint8_t LCD_ROWS = 2;
+const uint8_t LCD_COLS = 16;
+
+TwiLiquidCrystal lcd(LCD_ADDRESS); 
 RTC_DS3231 rtc;                     // create rtc for the DS3231 RTC module, address is fixed at 0x68
 
 
@@ -61,7 +79,7 @@ void updateLCD()
      */
      
     char dateBuffer[] = "DD-MMM-YYYY DDD";
-    char timeBuffer[] = "hh:mm:ss AP";
+    char timeBuffer[] = "hh:mm:ss";
     
     // move LCD cursor to upper-left position
     lcd.setCursor(0, 0);
@@ -69,7 +87,11 @@ void updateLCD()
 
     // move LCD cursor to lower-left position
     lcd.setCursor(0, 1);
+
+    // Using the timestamp() option makes the code
+    // 962 bytes larger!
     lcd.print(rtcTime.toString(timeBuffer));
+    //lcd.print(rtcTime.timestamp(DateTime::TIMESTAMP_TIME));
 }
 
 
@@ -77,9 +99,9 @@ void setup()
 {
     Serial.begin(9600); // initialize serial
     
-    lcd.init();        // initialize lcd
+    lcd.begin(LCD_COLS, LCD_ROWS);        // initialize lcd
     lcd.backlight();    // switch-on lcd backlight
-  
+    lcd.clear();
     rtc.begin();        // initialize rtc
 }
 
