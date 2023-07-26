@@ -18,7 +18,7 @@ The sketches use the following libraries:
 
 The plan is to replace the Arduino UNO with an ATtiny85 and have buttons etc to adjust the date and time, turn on/off the backlight etc. Plans often come to naught though! :wink:
 
-I might even make it sleep between updates and have the Watchdog wake up every second to update the LCD. ;)
+I might even make it sleep between updates and have the Watchdog wake up every second to update the LCD. :wink:
 
 This project is a variation of the one at [www.circuitbasics.com](https://www.circuitbasics.com/how-to-use-a-real-time-clock-module-with-the-arduino "https://www.circuitbasics.com/how-to-use-a-real-time-clock-module-with-the-arduino"). The image below is linked to that project.
 
