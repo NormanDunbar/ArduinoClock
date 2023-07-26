@@ -26,21 +26,17 @@
  */
 
 
-#include <RTClib.h>     // for RTCLib
+#include "RTClib.h"     // for RTCLib
 
 
 // Minimum and maximum values for each input.
 typedef struct minMax_t {
     int minimum;
     int maximum;
-};
-
+} minMax_t;
 
 
 RTC_DS3231 rtc;     // create rtc for the DS3231 RTC module, address is fixed at 0x68.
-
-
-
 
 
 /*
